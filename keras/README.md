@@ -61,8 +61,8 @@ Single image predictions with `predict.py`:
 python predict.py --path "/full/path/to/image" --model=inception
 ```
 
-Generate predictions with test folder from dataset and generate confusion matrix with `predict_cnfmatrix.py`:
+Generate predictions with test folder from dataset and generate confusion matrix with `predict_cnfmatrix.py` using a saved model:
 ```
-python predict.py --path "/full/path/to/image" --model=resnet50
+python predict.py --test_dir "/full/path/to/test/folder" --model="path/to/model.h5
 ```
 
