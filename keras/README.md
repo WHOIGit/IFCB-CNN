@@ -49,10 +49,11 @@ data/
 The Script `transfer-train.py` uses hardcoded directories and is included for archival purposes. To run on your own
 dataset, use `simple-transfer-train.py`:
 ```
-python train.py --model=resnet50
+python simple-transfer-train.py --train_dir=/data/plank_10_fixed/train --val_dir=/data/plank_10_fixed/valid --output_model_file="inception_10class.model" --nb_epoch=25 --plot
 ```
-
-For full training of the network use `train.py`
+This will run transfer-learning using inceptionv3 weights downloaded automatically, using the defined train and validation directories,
+defined output file, 25 epochs (cycles of training and validation), and plots the progress.
+For full training of the network use `train.py` with the same arguments but set `--freeze_layers_number=1`
 
 ### Predictions 
 
@@ -63,6 +64,6 @@ python predict.py --path "/full/path/to/image" --model=inception
 
 Generate predictions with test folder from dataset and generate confusion matrix with `predict_cnfmatrix.py` using a saved model:
 ```
-python predict.py --test_dir "/full/path/to/test/folder" --model="path/to/model.h5
+python predict.py --test_dir "/full/path/to/test/folder" --model="path/to/model.model
 ```
 
